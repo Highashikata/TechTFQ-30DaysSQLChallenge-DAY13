@@ -111,5 +111,16 @@ FROM   employee_managers;
 
 **DQL**
 ```
+SELECT *
+FROM EMPLOYEE_MANAGERS;
 
+
+SELECT 
+	e1.NAME MANAGER, 
+	COUNT(e2.manager) NO_OF_EMPLOYEES
+FROM EMPLOYEE_MANAGERS e1
+join EMPLOYEE_MANAGERS e2
+on e1.id = e2.manager
+group by e1.NAME
+order by COUNT(e2.manager) DESC;
 ```
